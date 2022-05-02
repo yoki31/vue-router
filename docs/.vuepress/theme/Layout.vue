@@ -1,5 +1,12 @@
 <template>
-  <div class="main-container">
+  <div
+    class="main-container"
+    :class="{ 'has-top-banner': showTopBanner }"
+  >
+    <BannerTop
+      v-if="showTopBanner"
+      @close="closeBannerTop"
+    />
     <ParentLayout>
       <template #page-top>
         <CarbonAds
@@ -74,11 +81,24 @@ export default {
   components: {
     ParentLayout,
     CarbonAds,
-    BuySellAds
+    BuySellAds,
+    BannerTop: () => import('./components/VueSchool/BannerTop.vue')
   },
   data() {
     return {
-      sponsors
+      sponsors,
+      showTopBanner: false
+    }
+  },
+  mounted () {
+    const now = new Date()
+    const end = new Date('2022-05-04T00:00:00+02:00')
+    this.showTopBanner = !localStorage.getItem('VS_FW_22_BANNER_CLOSED') && (now < end)
+  },
+  methods: {
+    closeBannerTop () {
+      this.showTopBanner = false
+      localStorage.setItem('VS_FW_22_BANNER_CLOSED', 1)
     }
   }
 }

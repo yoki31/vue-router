@@ -1,135 +1,213 @@
 <template>
-  <a id="vs" href="https://vueschool.io/sales/blackfriday?friend=vuerouter" target="_blank" rel="noreferrer">
-    <BannerCoins />
+  <a
+    id="vs"
+    href="https://vueschool.io/sales/price-increase-22?friend=vuerouter"
+    target="_blank"
+    rel="noreferrer"
+  >
+    <div class="vs-logo">
+      <img src="/images/vueschool/vs-iso.svg" class="logo-small">
+      <img src="/images/vueschool/vs-logo.svg" class="logo-big">
+    </div>
     <div class="vs-core">
-      <div class="vs-logo">
-        <img src="/images/vueschool/vueschool_blackfriday_logo.svg">
-      </div>
       <div class="vs-slogan">
-        <div class="vs-slogan-subtitle">
-          Access to all Vue Courses at Vue School
-        </div>
         <div class="vs-slogan-title">
-          Cyber Monday <strong>35% OFF</strong> - Closes Soon
+          Extended for <strong>48 hours!</strong>
+        </div>
+        <div class="vs-slogan-subtitle">
+          Get up to 40% off your Vue School Subscription
         </div>
       </div>
       <div class="vs-button">
-        Get Discount
+        <div class="vs-button-inside">
+          GET OFFER
+        </div>
       </div>
-      <img class="vs-tag" src="/images/vueschool/extended.svg" alt="Extended">
     </div>
     <div id="vs-close" class="vs-close" @click.stop.prevent="$emit('close')">
-      <img src="/images/vueschool/vueschool_close.svg" alt="Close">
+      <img src="/images/vueschool/vs-close.svg" alt="Close">
     </div>
   </a>
 </template>
 
-<script>
-import BannerCoins from './BannerCoins.vue'
+<style lang="stylus">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-export default {
-  components: {
-    BannerCoins
+#vs {
+  align-items: center;
+  background-color: #000c19;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  font-family: 'Roboto', Oxygen, Fira Sans, Helvetica Neue, sans-serif;
+  justify-content: center;
+  position: fixed;
+  padding: 0 10px;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  height: 5rem;
+  line-height: 1;
+  background-image: url(/images/vueschool/vs-fw-bg-small.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#vs:hover {
+  text-decoration: none;
+}
+
+#vs .vs-logo {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+#vs .vs-logo .logo-small {
+  width: 30px;
+  margin-left: -5px;
+  margin-top: 5px;
+}
+
+#vs .vs-logo .logo-big {
+  display: none;
+}
+
+#vs:hover .vs-core .vs-button-inside {
+  background: linear-gradient(257deg, #e19b09 99%, #ffca24 6%);
+}
+
+#vs .vs-core .vs-slogan {
+  color: #fff;
+  margin-left: 8px;
+  text-align: center;
+}
+
+#vs .vs-core {
+  width: 190px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#vs .vs-core .vs-slogan .vs-slogan-subtitle {
+  font-size: 14px;
+  color: #cdc5dc;
+  margin-top: 8px;
+}
+
+#vs .vs-core .vs-slogan .vs-slogan-title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#vs .vs-core .vs-slogan .vs-slogan-title strong {
+  color: #fdc722;
+}
+
+#vs .vs-core .vs-button {
+  background: linear-gradient(0deg, #ffdf4c, #e29d0a);
+  padding: 2px;
+  margin-right: 18px;
+  margin-left: 16px;
+  border-radius: 30px;
+  display: none;
+}
+
+#vs .vs-core .vs-button-inside {
+  color: #000;
+  padding: 7px 10px;
+  font-weight: 800;
+  font-size: 22px;
+  white-space: nowrap;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #FFC828, #E19C0E);
+  text-transform: uppercase;
+}
+
+#vs .vs-close {
+  right: 6px;
+  position: absolute;
+}
+
+#vs .vs-close:hover {
+  color: #56d8ff;
+}
+
+@media (min-width: 680px) {
+  #vs {
+    background-image: url(/images/vueschool/vs-fw-bg.svg);
+    background-position: top right -110px;
+  }
+
+  #vs .vs-core .vs-slogan {
+    margin-left: 24px;
+    width: auto;
+  }
+
+  #vs .vs-core .vs-slogan .vs-slogan-subtitle {
+    font-size: 16px;
+  }
+
+  #vs .vs-core .vs-slogan .vs-slogan-title {
+    font-size: 18px;
+  }
+
+  #vs .vs-core .vs-button {
+    display: inline-block;
+    margin-right: 0;
+    margin-left: 22px;
+  }
+
+  #vs .vs-core .vs-button-inside {
+    padding: 8px 24px;
+  }
+
+  #vs .vs-close {
+    padding: 10px;
+    right: 20px;
   }
 }
-</script>
 
-<style lang="stylus">
+@media (min-width: 768px) {
+  #vs .vs-logo .logo-small {
+    display: none;
+  }
+
+  #vs .vs-logo .logo-big {
+    display: inline-block;
+  }
+
+  #vs .vs-core {
+    width: 430px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #vs {
+    background-position: top right;
+  }
+
+  #vs .vs-core .vs-slogan .vs-slogan-title {
+    font-size: 24px;
+  }
+
+  #vs .vs-core .vs-button {
+    margin-left: 69px;
+  }
+
+  #vs .vs-core {
+    width: auto;
+  }
+}
+
+/************************************/
+
 $topBannerHeight ?= 5rem
 $topBannerHeightMobile ?= 5rem
 $navbarHeight ?= 3.6rem
 $contentClass = '.theme-default-content'
-
-@import url('https://fonts.googleapis.com/css?family=Archivo:400,600')
-
-// Banner
-#vs
-  align-items: center
-  background-color: #000c19
-  box-sizing: border-box
-  color: #fff
-  display: none
-  font-family 'Inter', Roboto, Oxygen, Fira Sans, Helvetica Neue, sans-serif
-  justify-content: center
-  position: fixed
-  padding: 0 10px
-  left: 0
-  right: 0
-  top: 0
-  z-index: 100
-  line-height: 1
-  height: $topBannerHeightMobile
-  background-image: url(/images/vueschool/vueschool_banner_mobile.png)
-  background-size: cover
-  background-repeat: no-repeat
-  @media (min-width: 680px)
-    background-image: none
-    height: $topBannerHeight
-    justify-content: center
-
-  &:hover
-    .vs-core
-      .vs-button
-        background: linear-gradient(261deg, #e61463 100%, #db5248 3%)
-
-  .vs-core
-    display: none
-    @media (min-width: 680px)
-      display: flex
-      align-items: center
-
-    .vs-slogan
-      font-family: Archivo
-      color: #FFF
-      margin-left: 8px
-      @media (min-width: 680px)
-        margin-left: 24px
-      .vs-slogan-subtitle
-        font-size: 12px
-        @media (min-width: 680px)
-          font-size: 14px
-      .vs-slogan-title
-        margin-top: 6px
-        font-size: 16px
-        font-weight: 600
-        @media (min-width: 680px)
-          font-size: 18px
-        strong
-          color: #ffae29
-          font-weight: 600
-
-    .vs-button
-      color: #FFF
-      padding: 7px 10px
-      border-radius: 4px
-      background: linear-gradient(to left, #e61b60, #dd4a4c)
-      font-weight: 600
-      font-family: 'Archivo', sans-serif
-      white-space: nowrap
-      margin-right: 22px
-      margin-left: 16px
-      @media (min-width: 680px)
-        margin-right: 0
-        padding: 8px 24px
-        margin-left: 22px
-      @media (min-width: 1024px)
-        margin-left: 69px
-
-    .vs-tag
-      margin-left: 10px
-      @media (min-width: 1024px)
-        margin-left: 30px
-
-  .vs-close
-      right: 6px
-      position: absolute
-      @media (min-width: 680px)
-        padding: 10px
-        right: 20px
-      &:hover
-        color: #56D8FF
-
-/************************************/
 
 // Show banner only if the container has class "has-top-banner"
 .main-container.has-top-banner
